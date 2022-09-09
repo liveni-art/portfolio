@@ -1,0 +1,92 @@
+﻿.usage {
+  padding-top: 100px;
+  background-color: $main-bg;
+
+  &__title {
+    position: relative;
+    text-align: center;
+    @include before_circle;
+    z-index: 2;
+    &:before {
+      top: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  &__subtitle {
+    text-align: center;
+  }
+  
+  &__wrapper {
+    padding-top: 60px;
+    
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 270px);
+    grid-template-rows: repeat(2, minmax(270px, auto));
+    gap: 16px;
+    grid-auto-rows: 1fr ;
+    justify-content: center;
+  }
+  
+  &__item {
+    padding: 25px;
+    border: 1px solid #000000;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 65px 21px minmax(94px, auto);
+    row-gap: 21px;
+  }
+  &__image-container {
+    height: 100%;
+  }
+  &__item-title {
+    font-weight: bold;
+  }
+  &__item-descr {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  
+  .scales__wrapper {
+      padding-top: 154px;
+      
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 67px 67px;
+      grid-auto-rows: 67px;
+      row-gap: 23px;
+      column-gap: 45px;
+
+     .scale {
+       position: relative;
+       &__title {
+         padding-left: 15px;
+         position: relative;
+         z-index: 2;
+         @include before_circle;
+       }
+
+       &__percents {
+         position: absolute;
+         right: 0;
+         top: 0px;
+       }
+
+       &__percents-line {
+         margin-top: 15px;
+         height: 14px;
+         width: 100%;
+         border-radius: 4px;
+         background-color: #ffffff; //#fff6e6;
+         
+         span {
+           display: block;
+           background-color: #66B848;
+           height: 14px;
+           border-radius: 4px;
+         }
+       }
+     }     
+  }
+}

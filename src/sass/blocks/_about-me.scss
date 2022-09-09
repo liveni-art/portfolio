@@ -1,0 +1,82 @@
+﻿.about {
+  min-height: 600px;
+  padding-top: 120px;
+  background-color: $main-bg;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 400px 670px;
+    grid-template-rows: minmax(150px, auto)
+                        minmax(150px, auto)
+                        minmax(150px, auto);
+    grid-auto-rows: minmax(150px, auto);
+    
+    row-gap: 40px;
+    column-gap: 70px;
+
+    //grid-template-areas: 
+    //"about-me-photo about-me-info"
+    //"about-me-photo about-me-development"
+    //"about-me-photo .";
+    ///* "." - для оставления блока пустым */
+
+  }
+  &__descr {
+    padding-top: 6px;
+    .title-divider {
+      margin: 0;
+    }
+  }
+  &__photo {
+    grid-row: 1/4;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    padding: 1px 0 0 12px;
+    @include before_circle;
+  }
+  &__text {
+    margin-top:20px;  
+    font-size: 14px;
+    line-height: 21px;
+  }
+  
+  &__skills {
+    display: grid;
+    grid-template: repeat(1, minmax(75px, auto)) / repeat(2, 260px);
+    grid-auto-rows: 1fr ;
+    column-gap: 50px;
+    row-gap: 20px;
+  }
+  &__skill {
+    display: grid;
+    grid-template-columns: 40px 200px;
+    column-gap: 20px;
+    
+    //NOTE: :before and :after DOES NOT WORK ON tag <img> (it's CSS)
+    //img {
+    //  position: relative;
+    //  @include before_circle;
+    //}
+  }
+  &__skills-circle {
+    position: relative;
+    z-index: 2;
+    padding: 15px 0 0 15px;
+    @include before_circle;
+    &:before {
+      top: 0;
+    }
+  }
+  &__skills-text {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+  
+}
