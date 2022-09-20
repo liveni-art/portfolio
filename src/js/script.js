@@ -31,7 +31,7 @@ menuItems.forEach((item, i) => {
 document.addEventListener("click", function (e) {
     const target = e.target;
     const its_menu = (target === menuElem || menuElem.contains(target)) && target !== menuOverlayElem;
-    const its_btnMenu = target === hamburgerElem;
+    const its_btnMenu = target === hamburgerElem || hamburgerElem.contains(target);
     const menu_is_active = menuElem.classList.contains("active");
 
     if (!its_menu && !its_btnMenu && menu_is_active) {
