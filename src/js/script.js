@@ -1,14 +1,44 @@
+// menu
 const hamburgerElem = document.querySelector(".hamburger");
 const menuElem = document.querySelector(".menu");
+const menuOverlayElem = document.querySelector(".menu__overlay");
 const closeElem = document.querySelector(".menu__close");
 
-hamburgerElem.addEventListener('click', () => {
+function openMenu() {
     menuElem.classList.add("active");
+}
+
+function closeMenu() {
+    menuElem.classList.remove("active");
+}
+
+hamburgerElem.addEventListener('click', () => {
+    openMenu();
 });
 
 closeElem.addEventListener('click', () => {
-    menuElem.classList.remove("active");
+    closeMenu();
 });
+
+const menuItems = document.querySelectorAll(".menu__link > a");
+menuItems.forEach((item, i) => {
+    item.addEventListener('click', () => {
+        closeMenu();
+    });
+});
+
+// close menu on click out of menu
+document.addEventListener("click", function (e) {
+    const target = e.target;
+    const its_menu = (target === menuElem || menuElem.contains(target)) && target !== menuOverlayElem;
+    const its_btnMenu = target === hamburgerElem;
+    const menu_is_active = menuElem.classList.contains("active");
+
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        closeMenu();
+    }
+});
+
 
 const percents = document.querySelectorAll('.scale__percents');
 const lines = document.querySelectorAll('.scale__percents-line span');
@@ -48,3 +78,4 @@ if (formElem.addEventListener){
 } else if (formElem.attachEvent){
     formElem.attachEvent('onsubmit', submitCallback);            //Old IE
 }
+
